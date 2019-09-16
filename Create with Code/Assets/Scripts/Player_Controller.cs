@@ -5,11 +5,11 @@ using UnityEngine;
 public class Player_Controller : MonoBehaviour
 {
 
-    private float speed = 30f; //adds a varible thingy in unity so we can change speed there
-    private float turnspeed;
-    private float horizontalInput;
-    private float forwardInput;
-
+    public float speed = 30f; //adds a varible thingy in unity so we can change speed there
+    public float turnspeed;
+    public float horizontalInput;
+    public float forwardInput;
+  
     // Start is called before the first frame update
     void Start()
     {
