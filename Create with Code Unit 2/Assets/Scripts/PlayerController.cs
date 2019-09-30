@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput;
     public float speed = 10.0f;
     public float xRange = 10;
+    public GameObject projectilePrefab; //this is how you can give a character a prefab
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //keep player in bounds
-        if  (transform.position.x < -xRange)
+        if  (transform.position.x < -xRange) //keeps players in bound
         {
             transform.position = new Vector3(-10, transform.position.y, transform.position.z);
         }
@@ -27,7 +28,15 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
-        horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("Horizontal"); //moving left and right
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            //launching the projcetiles
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        }
+
+
     }
 }
