@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     public float horizontalInput;
     public float speed = 10.0f;
-    public float xRange = 10;
+    public float xRange = 20;
     public GameObject projectilePrefab; //this is how you can give a character a prefab
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         //keep player in bounds
         if  (transform.position.x < -xRange) //keeps players in bound
         {
-            transform.position = new Vector3(-10, transform.position.y, transform.position.z);
+            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
         }
         if (transform.position.x > xRange)
         {
