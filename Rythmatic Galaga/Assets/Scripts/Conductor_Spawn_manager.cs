@@ -15,7 +15,7 @@ public class Conductor_Spawn_manager : MonoBehaviour
     void Start()
     {
         //Loads one of the 5 songs
-        musicSource = Random.Range(0, 5);
+        
 
         //Calculate the number of seconds in each beat
         secPerBeat = 60f / songBpm;
@@ -24,7 +24,7 @@ public class Conductor_Spawn_manager : MonoBehaviour
         dspSongTime = (float)AudioSettings.dspTime;
 
         //start the song
-        musicSource.Play();
+        
     }
 
     // Update is called once per frame
