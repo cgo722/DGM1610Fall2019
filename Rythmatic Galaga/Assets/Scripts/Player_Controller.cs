@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
-
+    private float bulletRotation;
     public float vspeed;
     public float hspeed;
     public float horizontalInput;
@@ -20,15 +20,16 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
 
-        transform.Translate(Vector2.up * Time.deltaTime * vspeed * verticalInput);
-        transform.Translate(Vector2.right * Time.deltaTime * hspeed * horizontalInput);
+        horizontalInput = Input.GetAxis("Horizontal");
+        transform.Rotate(Vector3.forward * Time.deltaTime * hspeed * horizontalInput);
 
         if (Input.GetKey(KeyCode.Space))
         {
+            transform.Translate(Vector2.up * Time.deltaTime * vspeed);
+            
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         }
+
     }
 }
