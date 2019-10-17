@@ -213,7 +213,7 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &251029610
@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 863239021}
   - component: {fileID: 863239023}
   - component: {fileID: 863239024}
+  - component: {fileID: 863239025}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -425,6 +426,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c8f471ef6f18d448cf0823d9b9e91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &863239025
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863239020}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1732340968
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +510,7 @@ SpriteRenderer:
   m_Size: {x: 0.5, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1732340970
