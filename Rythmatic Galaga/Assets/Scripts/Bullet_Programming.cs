@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Bullet_Programming : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+   
+
+        // Use this for initialization
+        void Start()
+        {
+        // Set the bullet to destroy itself after 1 seconds
+        Destroy(gameObject, .5f);
+        }
+    private void Update()
     {
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.Translate(Vector2.up * Time.deltaTime);
     }
 }
