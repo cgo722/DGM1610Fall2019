@@ -17,19 +17,20 @@ public class Player_Controller : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    // Update is called once per frame 
     void Update()
     {
-
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.forward * Time.deltaTime * hspeed * horizontalInput);
 
         if (Input.GetKey(KeyCode.Space))
         {
-            transform.Translate(Vector2.up * Time.deltaTime * vspeed);
-            
-            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
-        }
+            transform.Translate(Vector2.left * Time.deltaTime * vspeed);
 
+
+            Instantiate(projectilePrefab, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
+
+        }
+        
     }
 }
