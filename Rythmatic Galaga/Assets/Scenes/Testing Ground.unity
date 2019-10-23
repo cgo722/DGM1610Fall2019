@@ -389,13 +389,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863239020}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7033751, w: -0.7108189}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.467, y: 0.743, z: -0.8999833}
-  m_LocalScale: {x: 11.251305, y: 3.314149, z: 1}
+  m_LocalScale: {x: 13.047809, y: 3.1134052, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -89.397}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &863239023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,7 +408,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6117adb222be89348bd3da3076385036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vspeed: 7
+  startDelay: 0
+  frequencyOfShot: 0.5
+  vspeed: 10
   hspeed: 650
   horizontalInput: 0
   verticalInput: 0
@@ -434,7 +436,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863239020}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
