@@ -42,7 +42,11 @@ public class PlayerControllerX : MonoBehaviour
             playerRb.AddForce(Vector3.up * floatForce);
         }
 
-        if ()
+        if (isLowEnough == false)
+        {
+            
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision other)
