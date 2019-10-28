@@ -32,6 +32,8 @@ public class PlayerControllerX : MonoBehaviour
         playerRb.AddForce(Vector3.up * 5, ForceMode.Impulse);
 
         isLowEnough = true;
+
+        
     }
 
     // Update is called once per frame
@@ -46,6 +48,7 @@ public class PlayerControllerX : MonoBehaviour
         if (gameObject == transform.position.y >= 15)
         {
             isLowEnough = false;
+
         }
         else if(gameObject == transform.position.y < 15)
         {

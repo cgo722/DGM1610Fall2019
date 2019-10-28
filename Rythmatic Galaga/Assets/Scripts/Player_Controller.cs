@@ -6,7 +6,7 @@ public class Player_Controller : MonoBehaviour
 {
 
     public float startDelay = 0;
-    public float frequencyOfShot = 0.2f;
+    public float frequencyOfShot = 0.0001f;
     private float bulletRotation;
     public float vspeed;
     public float hspeed;
@@ -30,17 +30,14 @@ public class Player_Controller : MonoBehaviour
         transform.Rotate(Vector3.forward * Time.deltaTime * hspeed * horizontalInput);
 
 
-
-
     }
-
     void ShootBullets()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            transform.Translate(Vector2.left * Time.deltaTime * vspeed);
 
-
+            //transform.Translate(Vector2.left * Time.deltaTime * vspeed);
+            rgb.AddForce(transform.right * -vspeed, ForceMode2D.Impulse);
             Instantiate(projectilePrefab, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
 
         }
