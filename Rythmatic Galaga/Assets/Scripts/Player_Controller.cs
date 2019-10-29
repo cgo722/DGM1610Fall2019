@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
-
     public float startDelay = 0;
     public float frequencyOfShot = 0.0001f;
     private float bulletRotation;
