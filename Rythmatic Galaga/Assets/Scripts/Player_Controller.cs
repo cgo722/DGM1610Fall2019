@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
+    public int pHealth = 2;
     public float startDelay = 0;
     public float frequencyOfShot = 0.0001f;
     private float bulletRotation;
@@ -13,6 +14,7 @@ public class Player_Controller : MonoBehaviour
     public float verticalInput;
     public GameObject projectilePrefab;
     private Rigidbody2D rgb;
+    public bool gameover = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,30 @@ public class Player_Controller : MonoBehaviour
             rgb.AddForce(transform.right * -vspeed, ForceMode2D.Impulse);
             Instantiate(projectilePrefab, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
 
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            if(pHealth == 0)
+            {
+                Debug.Log("You died");
+                Destroy(gameObject);
+                gameover = true;
+            }
+            else
+            {
+                pHealth--;
+            }
+        }
+        if (collision.gameObject.CompareTag("Asteroid"))
+        {
+            Debug.Log("You died");
+            Destroy(gameObject);
+            gameover = true;
         }
     }
 }
