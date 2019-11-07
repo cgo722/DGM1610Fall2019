@@ -151,11 +151,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   badGuys:
   - {fileID: 6475904583864432301, guid: 8af11ccaee5c24b4888dd0a383798cf0, type: 3}
+  asteroids:
   - {fileID: 7102173480983550034, guid: d29cb17b3c9f3024abc81891b265f209, type: 3}
   spawnRangeX: 12
   spawnRangeY: 5
   startDelay: 2
   spawnInterval: 5
+  startDelayA: 1
+  spawnIntervalA: 2
 --- !u!4 &154858711
 Transform:
   m_ObjectHideFlags: 0
@@ -349,6 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6117adb222be89348bd3da3076385036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pHealth: 2
   startDelay: 0
   frequencyOfShot: 0.5
   vspeed: 1
@@ -357,6 +361,7 @@ MonoBehaviour:
   verticalInput: 0
   projectilePrefab: {fileID: 2499328050121487028, guid: 0b69875732f11664aa4c28eea6e9c8bb,
     type: 3}
+  gameover: 0
 --- !u!114 &863239024
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,10 +13,13 @@ public class Spawn_manager : MonoBehaviour
     public float startDelayA;
     public float spawnIntervalA;
     private Player_Controller playercontrollerscript;
+    public int enemyCount;
+    public int waveNumber;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnBadGuys", startDelay, spawnInterval);
+        //InvokeRepeating("SpawnBadGuys", startDelay, spawnInterval);
+        SpawnEnemyWave(waveNumber);
         InvokeRepeating("SpawnAsteroids", startDelayA, spawnIntervalA);
         playercontrollerscript = GameObject.Find("Player").GetComponent<Player_Controller>();
     }
@@ -24,9 +27,22 @@ public class Spawn_manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        enemyCount = FindObjectsOfType<Bad_Guy_Controller>().Length;
 
+        if (enemyCount == 0)
+        {
+            waveNumber++;
+            SpawnEnemyWave(waveNumber);
+        }
     }
 
+    void SpawnEnemyWave(int enemiesToSpawn)
+    {
+        for (int i = 0; i < enemiesToSpawn; i++)
+        {
+            SpawnBadGuys();
+        }
+    }
     void SpawnBadGuys()
     {
         if (playercontrollerscript.gameover == false)

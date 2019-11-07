@@ -5,17 +5,30 @@ using UnityEngine;
 public class Bad_Guy_Controller : MonoBehaviour
 {
     public int health = 2;
-
+    public float speed;
+    private Rigidbody2D enemyrb;
+    private GameObject player;
+    public GameObject eBullets;
+    public float startDelay;
+    public float spawnInterval;
     // Start is called before the first frame update
     void Start()
     {
-        
+        InvokeRepeating("SpawnBullets", startDelay, spawnInterval);
+        enemyrb = GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.LookAt(transform.position + player.transform.rotation * Vector3.forward, player.transform.rotation * Vector3.down);
+        Vector3 lookDirection = (player.transform.position - transform.position).normalized;
+        enemyrb.AddForce(lookDirection * speed, ForceMode2D.Impulse);
+    }
+    void SpawnBullets()
+    {
+        Instantiate(eBullets, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
