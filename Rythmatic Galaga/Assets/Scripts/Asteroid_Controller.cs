@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Asteroid_Controller : MonoBehaviour
 {
+    public int pointValue;
     private Rigidbody2D rgb2d;
     public float minSpeed;
     public float maxSpeed;

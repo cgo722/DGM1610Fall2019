@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Bullet_Programming : MonoBehaviour
 {
+    public int pointValueE;
+    public int pointValueA;
     public Rigidbody2D rb2d;
-
+    private GameManager gameManager;
         // Use this for initialization
         void Start()
         {
@@ -15,6 +17,7 @@ public class Bullet_Programming : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.AddForce(transform.right * 400);
 
+        gameManager = GameObject.Find("Spawn manager").GetComponent<GameManager>();
         }
     private void Update()
     {
@@ -24,11 +27,13 @@ public class Bullet_Programming : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("enemy"))
         {
+            gameManager.UpdateScore(pointValueE);
             Destroy(gameObject);
             Debug.Log("KABOOM");
         }
         if (collision.gameObject.CompareTag("Asteroid"))
         {
+            gameManager.UpdateScore(pointValueA);
             Destroy(gameObject);
             Debug.Log("KABOOM");
         }
