@@ -38,7 +38,7 @@ public class Player_Controller : MonoBehaviour
         {
 
             //transform.Translate(Vector2.left * Time.deltaTime * vspeed);
-            rgb.AddForce(transform.right * -vspeed, ForceMode2D.Impulse);
+            rgb.AddForce(transform.up * -vspeed, ForceMode2D.Impulse);
             Instantiate(projectilePrefab, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
 
         }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7760855090276950642}
   - component: {fileID: 8361842863910929287}
   - component: {fileID: -7362472361038351468}
+  - component: {fileID: -8074867137587540346}
   m_Layer: 9
   m_Name: Bullet
   m_TagString: Bullet
@@ -27,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2499328050121487028}
-  m_LocalRotation: {x: -0, y: -0, z: -0.70465904, w: 0.70954615}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.21, y: 0.75, z: -14.331826}
-  m_LocalScale: {x: 5.2621, y: 5.2621, z: 5.2621}
+  m_LocalScale: {x: 0.413491, y: 0.413491, z: 0.413491}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -89.604004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3020934493185063153
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 45970c8ec08e2cd48a7c51e750507d5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -133,16 +134,28 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000049218535, y: -0.0036228225}
+  m_Offset: {x: -0.0215801, y: 0.027426898}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.2, y: 0.2}
+    oldSize: {x: 2.38, y: 2.5}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13569996, y: 0.12162717}
+  m_Size: {x: 1.4334512, y: 2.043836}
   m_EdgeRadius: 0
+--- !u!114 &-8074867137587540346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2499328050121487028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c8f471ef6f18d448cf0823d9b9e91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

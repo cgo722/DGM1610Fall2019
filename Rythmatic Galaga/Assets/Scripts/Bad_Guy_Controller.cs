@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bad_Guy_Controller : MonoBehaviour
 {
-    public int pointValue;
     public int health = 2;
     public float speed;
     private Rigidbody2D enemyrb;
