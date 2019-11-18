@@ -22,8 +22,10 @@ public class Bad_Guy_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(transform.position + player.transform.rotation * Vector3.forward, player.transform.rotation * Vector3.down);
+        
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        enemyrb.rotation = 270 + angle;
         enemyrb.AddForce(lookDirection * speed, ForceMode2D.Impulse);
     }
     void SpawnBullets()

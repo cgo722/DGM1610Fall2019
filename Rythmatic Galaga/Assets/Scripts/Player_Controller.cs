@@ -15,13 +15,15 @@ public class Player_Controller : MonoBehaviour
     public GameObject projectilePrefab;
     private Rigidbody2D rgb;
     public bool gameover = false;
+    public AudioClip explosionFX;
+    private AudioSource explosionNoise;
 
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("ShootBullets", startDelay, frequencyOfShot);
         rgb = GetComponent<Rigidbody2D>();
-        
+        explosionNoise = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame 
@@ -54,10 +56,12 @@ public class Player_Controller : MonoBehaviour
                 Debug.Log("You died");
                 Destroy(gameObject);
                 gameover = true;
+                explosionNoise.Play();
             }
             else
             {
                 pHealth--;
+                explosionNoise.Play();
             }
         }
         if (collision.gameObject.CompareTag("Asteroid"))
@@ -65,6 +69,7 @@ public class Player_Controller : MonoBehaviour
             Debug.Log("You died");
             Destroy(gameObject);
             gameover = true;
+            explosionNoise.Play();
         }
     }
 }

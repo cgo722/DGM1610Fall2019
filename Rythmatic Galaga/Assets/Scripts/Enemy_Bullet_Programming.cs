@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy_Bullet_Programming : MonoBehaviour
 {
     public Rigidbody2D rb2d;
+    public AudioClip explosionNoise;
+    private AudioSource explosionFX;
 
     // Use this for initialization
     void Start()
@@ -14,6 +16,8 @@ public class Enemy_Bullet_Programming : MonoBehaviour
 
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.AddForce(transform.up * 400);
+
+        explosionFX = GetComponent<AudioSource>();
 
     }
     private void Update()
@@ -26,6 +30,7 @@ public class Enemy_Bullet_Programming : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log("KABOOM");
+            
         }
         if (collision.gameObject.CompareTag("Asteroid"))
         {
