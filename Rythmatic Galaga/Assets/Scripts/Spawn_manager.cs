@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spawn_manager : MonoBehaviour
 {
+    public GameObject healthPickUp;
     public GameObject[] badGuys;
     public GameObject[] asteroids;
     public float spawnRangeX;
@@ -33,6 +34,8 @@ public class Spawn_manager : MonoBehaviour
         {
             waveNumber++;
             SpawnEnemyWave(waveNumber);
+            Vector2 spawnPosH = new Vector2(Random.Range(-spawnRangeX, spawnRangeX), Random.Range(-spawnRangeY, spawnRangeY));
+            Instantiate(healthPickUp, spawnPosH, healthPickUp.transform.rotation);
         }
     }
 

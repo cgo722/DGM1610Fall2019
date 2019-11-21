@@ -48,10 +48,10 @@ public class Player_Controller : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+
         if (collision.gameObject.CompareTag("enemy"))
         {
-            if(pHealth == 0)
+            if (pHealth == 0)
             {
                 Debug.Log("You died");
                 Destroy(gameObject);
@@ -70,6 +70,11 @@ public class Player_Controller : MonoBehaviour
             Destroy(gameObject);
             gameover = true;
             explosionNoise.Play();
+        }
+        if (collision.gameObject.CompareTag("PickUp"))
+        {
+            pHealth++;
+            Debug.Log("Your Health is: " + pHealth);
         }
     }
 }
