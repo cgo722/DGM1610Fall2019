@@ -53,5 +53,9 @@ public class Bad_Guy_Controller : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.CompareTag("PickUp"))
+        {
+            health++;
+        }
     }
 }

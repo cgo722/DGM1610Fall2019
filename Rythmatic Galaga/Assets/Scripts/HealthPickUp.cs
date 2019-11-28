@@ -8,7 +8,7 @@ public class HealthPickUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerControllerScript = GameObject.Find("Player").GetComponent<Player_Controller>();
     }
 
     // Update is called once per frame
@@ -19,6 +19,10 @@ public class HealthPickUp : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("enemy"))
         {
             Destroy(gameObject);
         }
