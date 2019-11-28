@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HealthPickUp : MonoBehaviour
 {
+    private Player_Controller playerControllerScript;
     // Start is called before the first frame update
     void Start()
     {

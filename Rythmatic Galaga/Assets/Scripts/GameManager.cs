@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     private int score;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI title;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame()
     {
+
         score = 0;
         scoreText.text = "Score: " + score;
         UpdateScore(0);
