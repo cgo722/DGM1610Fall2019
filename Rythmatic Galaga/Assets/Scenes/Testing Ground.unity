@@ -165,6 +165,7 @@ MonoBehaviour:
   spawnIntervalA: 5
   enemyCount: 0
   waveNumber: 0
+  isGameActive: 1
 --- !u!4 &154858711
 Transform:
   m_ObjectHideFlags: 0
@@ -192,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 339980540}
-  title: {fileID: 0}
+  title: {fileID: 1930657627}
 --- !u!1 &201644252
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,7 +896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1930657626
 RectTransform:
   m_ObjectHideFlags: 0

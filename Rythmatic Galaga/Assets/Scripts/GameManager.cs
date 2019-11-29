@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour
 {
     private int score;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI title;
+    private Spawn_manager spawnManager;
 
     // Start is called before the first frame update
     void Start()
@@ -31,5 +35,6 @@ public class GameManager : MonoBehaviour
         score = 0;
         scoreText.text = "Score: " + score;
         UpdateScore(0);
+        //title.gameObject.SetActive(false);
     }
 }

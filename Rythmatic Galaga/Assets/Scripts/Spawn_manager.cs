@@ -16,6 +16,7 @@ public class Spawn_manager : MonoBehaviour
     private Player_Controller playercontrollerscript;
     public int enemyCount;
     public int waveNumber;
+    public bool isGameActive = true;
     // Start is called before the first frame update
     void Start()
     {
