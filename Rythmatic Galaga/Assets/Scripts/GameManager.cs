@@ -14,12 +14,15 @@ public class GameManager : MonoBehaviour
     public Button button;
     public GameObject player;
     private Spawn_manager spawnManagerScript;
+    public Button restartButton;
+    public TextMeshProUGUI gameOver;
 
     // Start is called before the first frame update
     void Start()
     {
         button.onClick.AddListener(StartGame);
         spawnManagerScript = GameObject.Find("Spawn manager").GetComponent<Spawn_manager>();
+        restartButton.onClick.AddListener(RestartGame);
     }
 
     // Update is called once per frame
@@ -44,6 +47,12 @@ public class GameManager : MonoBehaviour
     }
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Application.LoadLevel("Menu");
+    }
+    public void GameOver()
+    {
+        gameOver.gameObject.SetActive(true);
+        restartButton.gameObject.SetActive(true);
+        spawnManagerScript.isGameActive = false;
     }
 }

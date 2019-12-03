@@ -17,6 +17,7 @@ public class Player_Controller : MonoBehaviour
     public bool gameover = false;
     public AudioClip explosionFX;
     private AudioSource explosionNoise;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class Player_Controller : MonoBehaviour
         InvokeRepeating("ShootBullets", startDelay, frequencyOfShot);
         rgb = GetComponent<Rigidbody2D>();
         explosionNoise = GetComponent<AudioSource>();
+        gameManager = GameObject.Find("Spawn manager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame 
@@ -55,11 +57,13 @@ public class Player_Controller : MonoBehaviour
                 Destroy(gameObject);
                 gameover = true;
                 explosionNoise.Play();
+                gameManager.GameOver();
             }
             else
             {
                 pHealth--;
                 explosionNoise.Play();
+                
             }
         }
         if (collision.gameObject.CompareTag("Asteroid"))
@@ -68,6 +72,7 @@ public class Player_Controller : MonoBehaviour
             Destroy(gameObject);
             gameover = true;
             explosionNoise.Play();
+            gameManager.GameOver();
         }
         if (collision.gameObject.CompareTag("PickUp"))
         {
