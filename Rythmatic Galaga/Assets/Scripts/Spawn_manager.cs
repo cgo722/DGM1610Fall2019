@@ -16,19 +16,22 @@ public class Spawn_manager : MonoBehaviour
     private Player_Controller playercontrollerscript;
     public int enemyCount;
     public int waveNumber;
-    public bool isGameActive = true;
+    public bool isGameActive = false;
+    private GameManager gameManagerScript;
     // Start is called before the first frame update
     void Start()
     {
-        //InvokeRepeating("SpawnBadGuys", startDelay, spawnInterval);
         SpawnEnemyWave(waveNumber);
         InvokeRepeating("SpawnAsteroids", startDelayA, spawnIntervalA);
+
         playercontrollerscript = GameObject.Find("Player").GetComponent<Player_Controller>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
         enemyCount = FindObjectsOfType<Bad_Guy_Controller>().Length;
 
         if (enemyCount == 0)
@@ -39,7 +42,6 @@ public class Spawn_manager : MonoBehaviour
             Instantiate(healthPickUp, spawnPosH, healthPickUp.transform.rotation);
         }
     }
-
     void SpawnEnemyWave(int enemiesToSpawn)
     {
         for (int i = 0; i < enemiesToSpawn; i++)
@@ -49,7 +51,7 @@ public class Spawn_manager : MonoBehaviour
     }
     void SpawnBadGuys()
     {
-        if (playercontrollerscript.gameover == false)
+        if (playercontrollerscript.gameover == false && isGameActive == true)
         {
             Vector2 spawnPos = new Vector2(Random.Range(-spawnRangeX, spawnRangeX), Random.Range(-spawnRangeY, spawnRangeY));
             int badGuyIndex = Random.Range(0, badGuys.Length);
@@ -58,7 +60,7 @@ public class Spawn_manager : MonoBehaviour
     }
     void SpawnAsteroids()
     {
-        if (playercontrollerscript.gameover == false)
+        if (playercontrollerscript.gameover == false && isGameActive == true)
         {
             Vector2 spawnPos = new Vector2(Random.Range(-spawnRangeX, spawnRangeX), Random.Range(-spawnRangeY, spawnRangeY));
             int asteroidsIndex = Random.Range(0, badGuys.Length);

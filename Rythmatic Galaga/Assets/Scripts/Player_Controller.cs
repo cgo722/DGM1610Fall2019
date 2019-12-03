@@ -31,8 +31,6 @@ public class Player_Controller : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.forward * Time.deltaTime * hspeed * horizontalInput);
-
-
     }
     void ShootBullets()
     {
