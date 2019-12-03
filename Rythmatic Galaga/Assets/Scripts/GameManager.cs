@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame()
     {
+        Application.LoadLevel("Testing Ground");
         spawnManagerScript.isGameActive = true;
         player.gameObject.SetActive(true);
         score = 0;
