@@ -15,7 +15,6 @@ public class Asteroid_Controller : MonoBehaviour
     {
         rgb2d = GetComponent<Rigidbody2D>();
         rgb2d.AddForce(transform.up * Random.Range(minSpeed, maxSpeed));
-
     }
 
     // Update is called once per frame
@@ -27,20 +26,22 @@ public class Asteroid_Controller : MonoBehaviour
     {
        if (collision.gameObject.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
             asteroidExplosion.Play();
+            Destroy(gameObject);
+            
         }
        
        if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
             asteroidExplosion.Play();
+            Destroy(gameObject);
+            
         }
 
         if (collision.gameObject.CompareTag("enemy"))
         {
-            Destroy(gameObject);
             asteroidExplosion.Play();
+            Destroy(gameObject);
         }
     }
 }
