@@ -139,6 +139,8 @@ MonoBehaviour:
   minSpeed: 20
   maxSpeed: 80
   player: {fileID: 0}
+  asteroidExplosion: {fileID: 1788801939772064330, guid: 8ea477274938b6d4187b533956421989,
+    type: 3}
 --- !u!50 &5694698003159384393
 Rigidbody2D:
   serializedVersion: 4
