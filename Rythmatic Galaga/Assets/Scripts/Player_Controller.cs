@@ -18,6 +18,7 @@ public class Player_Controller : MonoBehaviour
     public AudioClip explosionFX;
     private AudioSource explosionNoise;
     private GameManager gameManager;
+    private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class Player_Controller : MonoBehaviour
         rgb = GetComponent<Rigidbody2D>();
         explosionNoise = GetComponent<AudioSource>();
         gameManager = GameObject.Find("Spawn manager").GetComponent<GameManager>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame 
@@ -53,25 +55,30 @@ public class Player_Controller : MonoBehaviour
         {
             if (pHealth == 0)
             {
+                explosionNoise.PlayOneShot(explosionFX, 1.0f);
                 Debug.Log("You died");
-                Destroy(gameObject);
+                spriteRenderer.enabled = false;
+                Destroy(gameObject, 1.0f);
                 gameover = true;
-                explosionNoise.Play();
+                
                 gameManager.GameOver();
+                
             }
             else
             {
                 pHealth--;
-                explosionNoise.Play();
-                
+                explosionNoise.PlayOneShot(explosionFX, 1.0f);
+
             }
         }
         if (collision.gameObject.CompareTag("Asteroid"))
         {
+            explosionNoise.PlayOneShot(explosionFX, 1.0f);
+            spriteRenderer.enabled = false;
             Debug.Log("You died");
-            Destroy(gameObject);
+            Destroy(gameObject, 1.0f);
             gameover = true;
-            explosionNoise.Play();
+
             gameManager.GameOver();
         }
         if (collision.gameObject.CompareTag("PickUp"))

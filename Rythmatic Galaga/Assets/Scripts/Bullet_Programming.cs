@@ -8,6 +8,9 @@ public class Bullet_Programming : MonoBehaviour
     public int pointValueA;
     public Rigidbody2D rb2d;
     private GameManager gameManager;
+    private AudioSource soundEffects;
+    public AudioClip explosionNoise;
+    private SpriteRenderer spriteRenderer;
         // Use this for initialization
         void Start()
         {
@@ -18,6 +21,10 @@ public class Bullet_Programming : MonoBehaviour
         rb2d.AddForce(transform.up * 400);
 
         gameManager = GameObject.Find("Spawn manager").GetComponent<GameManager>();
+
+        soundEffects = GetComponent<AudioSource>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
         }
     private void Update()
     {
@@ -27,14 +34,18 @@ public class Bullet_Programming : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("enemy"))
         {
+            soundEffects.PlayOneShot(explosionNoise, 1.0f);
             gameManager.UpdateScore(pointValueE);
-            Destroy(gameObject);
+            spriteRenderer.enabled = false;
+            Destroy(gameObject, 1.0f);
             Debug.Log("KABOOM");
         }
         if (collision.gameObject.CompareTag("Asteroid"))
         {
+            soundEffects.PlayOneShot(explosionNoise, 1.0f);
             gameManager.UpdateScore(pointValueA);
-            Destroy(gameObject);
+            spriteRenderer.enabled = false;
+            Destroy(gameObject, 1.0f);
             Debug.Log("KABOOM");
         }
     }

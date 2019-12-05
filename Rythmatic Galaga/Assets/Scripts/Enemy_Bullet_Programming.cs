@@ -6,7 +6,8 @@ public class Enemy_Bullet_Programming : MonoBehaviour
 {
     public Rigidbody2D rb2d;
     public AudioClip explosionNoise;
-    private AudioSource explosionFX;
+    private AudioSource soundEffects;
+    private SpriteRenderer spriteRenderer;
 
     // Use this for initialization
     void Start()
@@ -17,7 +18,9 @@ public class Enemy_Bullet_Programming : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.AddForce(transform.up * 400);
 
-        explosionFX = GetComponent<AudioSource>();
+        soundEffects = GetComponent<AudioSource>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
     private void Update()
@@ -28,13 +31,17 @@ public class Enemy_Bullet_Programming : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            soundEffects.PlayOneShot(explosionNoise, 1.0f);
+            spriteRenderer.enabled = false;
+            Destroy(gameObject, 1.0f);
             Debug.Log("KABOOM");
             
         }
         if (collision.gameObject.CompareTag("Asteroid"))
         {
-            Destroy(gameObject);
+            soundEffects.PlayOneShot(explosionNoise, 1.0f);
+            spriteRenderer.enabled = false;
+            Destroy(gameObject, 1.0f);
             Debug.Log("KABOOM");
         }
     }

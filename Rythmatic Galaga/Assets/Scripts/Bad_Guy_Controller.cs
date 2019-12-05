@@ -11,12 +11,17 @@ public class Bad_Guy_Controller : MonoBehaviour
     public GameObject eBullets;
     public float startDelay;
     public float spawnInterval;
+    private AudioSource soundEffects;
+    public AudioClip explosionNoise;
+    private SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("SpawnBullets", startDelay, spawnInterval);
         enemyrb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
+        soundEffects = GetComponent<AudioSource>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -36,6 +41,7 @@ public class Bad_Guy_Controller : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+
             Destroy(gameObject);
         }
         if (collision.gameObject.CompareTag("Bullet"))
@@ -51,7 +57,9 @@ public class Bad_Guy_Controller : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Asteroid"))
         {
-            Destroy(gameObject);
+            soundEffects.PlayOneShot(explosionNoise, 1.0f);
+            spriteRenderer.enabled = false;
+            Destroy(gameObject, 1.0f);
         }
         if (collision.gameObject.CompareTag("PickUp"))
         {

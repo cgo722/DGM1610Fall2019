@@ -10,6 +10,7 @@ public class Asteroid_Controller : MonoBehaviour
     public float maxSpeed;
     public GameObject player;
     public ParticleSystem asteroidExplosion;
+    public ParticleSystem explosionFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class Asteroid_Controller : MonoBehaviour
     {
        if (collision.gameObject.CompareTag("Bullet"))
         {
+            
             asteroidExplosion.Play();
             Destroy(gameObject);
             
