@@ -5,6 +5,7 @@ using UnityEngine;
 public class HealthPickUp : MonoBehaviour
 {
     private Player_Controller playerControllerScript;
+    public ParticleSystem healthPickUpFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +21,15 @@ public class HealthPickUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Instantiate(healthPickUpFX, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
+            Destroy(healthPickUpFX, 1);
         }
         if (collision.gameObject.CompareTag("enemy"))
         {
+            Instantiate(healthPickUpFX, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
+            Destroy(healthPickUpFX, 1);
         }
     }
 }

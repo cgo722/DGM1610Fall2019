@@ -121,6 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 0}
   explosionNoise: {fileID: 8300000, guid: 539ecd042d7a84849951265a4d98b0af, type: 3}
+  explosionFX: {fileID: 5359171180525418124, guid: 7ac0f6ac99c15284f8b06c40a4758ada,
+    type: 3}
 --- !u!61 &-3786797718630124520
 BoxCollider2D:
   m_ObjectHideFlags: 0

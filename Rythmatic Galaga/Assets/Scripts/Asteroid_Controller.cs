@@ -28,22 +28,29 @@ public class Asteroid_Controller : MonoBehaviour
        if (collision.gameObject.CompareTag("Bullet"))
         {
             
-            asteroidExplosion.Play();
+
             Destroy(gameObject);
-            
+            Instantiate(asteroidExplosion, gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(asteroidExplosion, 2);
         }
        
        if (collision.gameObject.CompareTag("Player"))
         {
-            asteroidExplosion.Play();
-            Destroy(gameObject);
             
+            
+            Destroy(gameObject);
+            Instantiate(asteroidExplosion, gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(asteroidExplosion, 2);
+
         }
 
         if (collision.gameObject.CompareTag("enemy"))
         {
-            asteroidExplosion.Play();
+            
+
             Destroy(gameObject);
+            Instantiate(asteroidExplosion, gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(asteroidExplosion, 2);
         }
     }
 }

@@ -11,6 +11,7 @@ public class Bullet_Programming : MonoBehaviour
     private AudioSource soundEffects;
     public AudioClip explosionNoise;
     private SpriteRenderer spriteRenderer;
+    public ParticleSystem explosionFX;
         // Use this for initialization
         void Start()
         {
@@ -34,19 +35,25 @@ public class Bullet_Programming : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("enemy"))
         {
+            Instantiate(explosionFX, gameObject.transform.position, gameObject.transform.rotation);
             soundEffects.PlayOneShot(explosionNoise, 1.0f);
             gameManager.UpdateScore(pointValueE);
             spriteRenderer.enabled = false;
             Destroy(gameObject, 1.0f);
             Debug.Log("KABOOM");
+            Destroy(explosionFX, 1);
+            
         }
         if (collision.gameObject.CompareTag("Asteroid"))
         {
+            Instantiate(explosionFX, gameObject.transform.position, gameObject.transform.rotation);
             soundEffects.PlayOneShot(explosionNoise, 1.0f);
             gameManager.UpdateScore(pointValueA);
             spriteRenderer.enabled = false;
             Destroy(gameObject, 1.0f);
             Debug.Log("KABOOM");
+            Destroy(explosionFX, 1);
+            
         }
     }
 }

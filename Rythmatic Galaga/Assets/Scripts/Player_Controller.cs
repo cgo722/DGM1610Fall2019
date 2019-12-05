@@ -19,6 +19,8 @@ public class Player_Controller : MonoBehaviour
     private AudioSource explosionNoise;
     private GameManager gameManager;
     private SpriteRenderer spriteRenderer;
+    public ParticleSystem explosionEffect;
+    public ParticleSystem shipCrash;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +57,8 @@ public class Player_Controller : MonoBehaviour
         {
             if (pHealth == 0)
             {
+                Instantiate(explosionEffect, gameObject.transform.position, gameObject.transform.rotation);
+                Instantiate(shipCrash, gameObject.transform.position, gameObject.transform.rotation);
                 explosionNoise.PlayOneShot(explosionFX, 1.0f);
                 Debug.Log("You died");
                 spriteRenderer.enabled = false;
@@ -62,17 +66,22 @@ public class Player_Controller : MonoBehaviour
                 gameover = true;
                 
                 gameManager.GameOver();
-                
+                Destroy(explosionEffect, 1);
+                Destroy(shipCrash, 1);
             }
             else
             {
+                Instantiate(shipCrash, gameObject.transform.position, gameObject.transform.rotation);
                 pHealth--;
                 explosionNoise.PlayOneShot(explosionFX, 1.0f);
+
+                Destroy(shipCrash, 1);
 
             }
         }
         if (collision.gameObject.CompareTag("Asteroid"))
         {
+            Instantiate(explosionEffect, gameObject.transform.position, gameObject.transform.rotation);
             explosionNoise.PlayOneShot(explosionFX, 1.0f);
             spriteRenderer.enabled = false;
             Debug.Log("You died");
@@ -80,6 +89,7 @@ public class Player_Controller : MonoBehaviour
             gameover = true;
 
             gameManager.GameOver();
+            Destroy(explosionEffect, 1);
         }
         if (collision.gameObject.CompareTag("PickUp"))
         {

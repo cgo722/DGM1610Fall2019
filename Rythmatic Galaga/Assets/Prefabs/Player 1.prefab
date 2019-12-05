@@ -109,6 +109,10 @@ MonoBehaviour:
     type: 3}
   gameover: 0
   explosionFX: {fileID: 8300000, guid: 539ecd042d7a84849951265a4d98b0af, type: 3}
+  explosionEffect: {fileID: 5359171180525418124, guid: 7ac0f6ac99c15284f8b06c40a4758ada,
+    type: 3}
+  shipCrash: {fileID: 7623364992266422925, guid: db2ba50039b27984e9e7585a5ebfed0f,
+    type: 3}
 --- !u!114 &1995882409670949167
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class Enemy_Bullet_Programming : MonoBehaviour
     public AudioClip explosionNoise;
     private AudioSource soundEffects;
     private SpriteRenderer spriteRenderer;
+    public ParticleSystem explosionFX;
 
     // Use this for initialization
     void Start()
@@ -31,18 +32,22 @@ public class Enemy_Bullet_Programming : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Instantiate(explosionFX, gameObject.transform.position, gameObject.transform.rotation);
             soundEffects.PlayOneShot(explosionNoise, 1.0f);
             spriteRenderer.enabled = false;
             Destroy(gameObject, 1.0f);
             Debug.Log("KABOOM");
-            
+
+            Destroy(explosionFX, 1);
         }
         if (collision.gameObject.CompareTag("Asteroid"))
         {
+            Instantiate(explosionFX, gameObject.transform.position, gameObject.transform.rotation);
             soundEffects.PlayOneShot(explosionNoise, 1.0f);
             spriteRenderer.enabled = false;
             Destroy(gameObject, 1.0f);
             Debug.Log("KABOOM");
+            Destroy(explosionFX, 1);
         }
     }
 }
