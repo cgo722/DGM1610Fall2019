@@ -31,7 +31,7 @@ public class Asteroid_Controller : MonoBehaviour
 
             Destroy(gameObject);
             Instantiate(asteroidExplosion, gameObject.transform.position, gameObject.transform.rotation);
-            Destroy(asteroidExplosion, 2);
+            DestroyImmediate(asteroidExplosion, true);
         }
        
        if (collision.gameObject.CompareTag("Player"))
@@ -40,7 +40,7 @@ public class Asteroid_Controller : MonoBehaviour
             
             Destroy(gameObject);
             Instantiate(asteroidExplosion, gameObject.transform.position, gameObject.transform.rotation);
-            Destroy(asteroidExplosion, 2);
+            DestroyImmediate(asteroidExplosion, true);
 
         }
 
@@ -50,7 +50,7 @@ public class Asteroid_Controller : MonoBehaviour
 
             Destroy(gameObject);
             Instantiate(asteroidExplosion, gameObject.transform.position, gameObject.transform.rotation);
-            Destroy(asteroidExplosion, 2);
+            DestroyImmediate(asteroidExplosion, true);
         }
     }
 }

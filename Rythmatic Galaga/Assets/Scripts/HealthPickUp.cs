@@ -23,13 +23,13 @@ public class HealthPickUp : MonoBehaviour
         {
             Instantiate(healthPickUpFX, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
-            Destroy(healthPickUpFX, 1);
+            DestroyImmediate(healthPickUpFX);
         }
         if (collision.gameObject.CompareTag("enemy"))
         {
             Instantiate(healthPickUpFX, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
-            Destroy(healthPickUpFX, 1);
+            DestroyImmediate(healthPickUpFX);
         }
     }
 }

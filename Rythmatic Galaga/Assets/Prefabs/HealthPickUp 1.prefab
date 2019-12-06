@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2124126260992169891}
   - component: {fileID: -3635549868596399078}
   - component: {fileID: 1462352958944566045}
-  - component: {fileID: 2567546334716853250}
+  - component: {fileID: -299684992886834854}
   m_Layer: 12
   m_Name: HealthPickUp 1
   m_TagString: PickUp
@@ -124,7 +124,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
---- !u!50 &2567546334716853250
+--- !u!50 &-299684992886834854
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

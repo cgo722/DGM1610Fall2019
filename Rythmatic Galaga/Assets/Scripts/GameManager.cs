@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         button.onClick.AddListener(StartGame);
         spawnManagerScript = GameObject.Find("Spawn manager").GetComponent<Spawn_manager>();
         restartButton.onClick.AddListener(RestartGame);

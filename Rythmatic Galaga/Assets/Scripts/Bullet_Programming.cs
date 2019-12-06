@@ -41,7 +41,7 @@ public class Bullet_Programming : MonoBehaviour
             spriteRenderer.enabled = false;
             Destroy(gameObject, 1.0f);
             Debug.Log("KABOOM");
-            Destroy(explosionFX, 1);
+            DestroyImmediate(explosionFX, true);
             
         }
         if (collision.gameObject.CompareTag("Asteroid"))
@@ -52,7 +52,7 @@ public class Bullet_Programming : MonoBehaviour
             spriteRenderer.enabled = false;
             Destroy(gameObject, 1.0f);
             Debug.Log("KABOOM");
-            Destroy(explosionFX, 1);
+            DestroyImmediate(explosionFX, true);
             
         }
     }

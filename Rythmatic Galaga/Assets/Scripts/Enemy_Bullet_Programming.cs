@@ -38,7 +38,7 @@ public class Enemy_Bullet_Programming : MonoBehaviour
             Destroy(gameObject, 1.0f);
             Debug.Log("KABOOM");
 
-            Destroy(explosionFX, 1);
+            DestroyImmediate(explosionFX);
         }
         if (collision.gameObject.CompareTag("Asteroid"))
         {
@@ -47,7 +47,7 @@ public class Enemy_Bullet_Programming : MonoBehaviour
             spriteRenderer.enabled = false;
             Destroy(gameObject, 1.0f);
             Debug.Log("KABOOM");
-            Destroy(explosionFX, 1);
+            DestroyImmediate(explosionFX);
         }
     }
 }

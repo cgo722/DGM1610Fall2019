@@ -34,7 +34,7 @@ public class Spawn_manager : MonoBehaviour
 
         enemyCount = FindObjectsOfType<Bad_Guy_Controller>().Length;
 
-        if (enemyCount == 0)
+        if (enemyCount == 0 && playercontrollerscript.gameover == false && isGameActive == true)
         {
             waveNumber++;
             SpawnEnemyWave(waveNumber);

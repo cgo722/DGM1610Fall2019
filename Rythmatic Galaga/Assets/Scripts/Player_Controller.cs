@@ -40,7 +40,7 @@ public class Player_Controller : MonoBehaviour
     }
     void ShootBullets()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && gameover == false)
         {
 
             //transform.Translate(Vector2.left * Time.deltaTime * vspeed);
@@ -66,8 +66,8 @@ public class Player_Controller : MonoBehaviour
                 gameover = true;
                 
                 gameManager.GameOver();
-                Destroy(explosionEffect, 1);
-                Destroy(shipCrash, 1);
+                DestroyImmediate(explosionEffect);
+                DestroyImmediate(shipCrash, true);
             }
             else
             {
@@ -75,7 +75,7 @@ public class Player_Controller : MonoBehaviour
                 pHealth--;
                 explosionNoise.PlayOneShot(explosionFX, 1.0f);
 
-                Destroy(shipCrash, 1);
+                DestroyImmediate(shipCrash, true);
 
             }
         }
@@ -89,7 +89,7 @@ public class Player_Controller : MonoBehaviour
             gameover = true;
 
             gameManager.GameOver();
-            Destroy(explosionEffect, 1);
+            DestroyImmediate(explosionEffect, true);
         }
         if (collision.gameObject.CompareTag("PickUp"))
         {

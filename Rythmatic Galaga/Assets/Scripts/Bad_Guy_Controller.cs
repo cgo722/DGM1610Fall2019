@@ -14,6 +14,7 @@ public class Bad_Guy_Controller : MonoBehaviour
     private AudioSource soundEffects;
     public AudioClip explosionNoise;
     private SpriteRenderer spriteRenderer;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class Bad_Guy_Controller : MonoBehaviour
         player = GameObject.Find("Player");
         soundEffects = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame
