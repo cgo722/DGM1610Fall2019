@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -21,6 +23,7 @@ public class Player_Controller : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public ParticleSystem explosionEffect;
     public ParticleSystem shipCrash;
+    public TextMeshProUGUI liveCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -30,11 +33,13 @@ public class Player_Controller : MonoBehaviour
         explosionNoise = GetComponent<AudioSource>();
         gameManager = GameObject.Find("Spawn manager").GetComponent<GameManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame 
     void Update()
     {
+        LiveCounter();
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.forward * Time.deltaTime * hspeed * horizontalInput);
     }
@@ -48,6 +53,10 @@ public class Player_Controller : MonoBehaviour
             Instantiate(projectilePrefab, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
 
         }
+    }
+    void LiveCounter()
+    {
+        liveCounter.text = "Lives: " + pHealth;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -77,6 +86,21 @@ public class Player_Controller : MonoBehaviour
 
                 Destroy(shipCrash.gameObject, 2.0f);
 
+            }
+        }
+        if (collision.gameObject.CompareTag("enemy_bullet"))
+        {
+            if(pHealth == 0)
+            {
+                spriteRenderer.enabled = false;
+                Destroy(gameObject, 1.0f);
+                gameover = true;
+
+                gameManager.GameOver();
+            }
+            else
+            {
+                pHealth--;
             }
         }
         if (collision.gameObject.CompareTag("Asteroid"))

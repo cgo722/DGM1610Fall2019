@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private Spawn_manager spawnManagerScript;
     public Button restartButton;
     public TextMeshProUGUI gameOver;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -24,11 +25,13 @@ public class GameManager : MonoBehaviour
         button.onClick.AddListener(StartGame);
         spawnManagerScript = GameObject.Find("Spawn manager").GetComponent<Spawn_manager>();
         restartButton.onClick.AddListener(RestartGame);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetKey("escape"))
         {
             Application.Quit();
@@ -48,6 +51,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + score;
         UpdateScore(0);
         title.gameObject.SetActive(false);
+        
     }
     public void RestartGame()
     {
@@ -59,4 +63,5 @@ public class GameManager : MonoBehaviour
         restartButton.gameObject.SetActive(true);
         spawnManagerScript.isGameActive = false;
     }
+    
 }
