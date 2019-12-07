@@ -21,15 +21,15 @@ public class HealthPickUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Instantiate(healthPickUpFX, gameObject.transform.position, gameObject.transform.rotation);
+            ParticleSystem healthP = Instantiate(healthPickUpFX, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
-            DestroyImmediate(healthPickUpFX);
+            Destroy(healthP, 2.0f);
         }
         if (collision.gameObject.CompareTag("enemy"))
         {
-            Instantiate(healthPickUpFX, gameObject.transform.position, gameObject.transform.rotation);
+            ParticleSystem healthP = Instantiate(healthPickUpFX, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
-            DestroyImmediate(healthPickUpFX);
+            Destroy(healthP, 2.0f);
         }
     }
 }

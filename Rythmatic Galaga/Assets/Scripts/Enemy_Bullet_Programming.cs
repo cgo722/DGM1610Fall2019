@@ -32,22 +32,22 @@ public class Enemy_Bullet_Programming : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Instantiate(explosionFX, gameObject.transform.position, gameObject.transform.rotation);
+            ParticleSystem explosionP = Instantiate(explosionFX, gameObject.transform.position, gameObject.transform.rotation);
             soundEffects.PlayOneShot(explosionNoise, 1.0f);
             spriteRenderer.enabled = false;
             Destroy(gameObject, 1.0f);
             Debug.Log("KABOOM");
 
-            DestroyImmediate(explosionFX);
+            Destroy(explosionP, 2.0f);
         }
         if (collision.gameObject.CompareTag("Asteroid"))
         {
-            Instantiate(explosionFX, gameObject.transform.position, gameObject.transform.rotation);
+            ParticleSystem explosionP = Instantiate(explosionFX, gameObject.transform.position, gameObject.transform.rotation);
             soundEffects.PlayOneShot(explosionNoise, 1.0f);
             spriteRenderer.enabled = false;
             Destroy(gameObject, 1.0f);
             Debug.Log("KABOOM");
-            DestroyImmediate(explosionFX);
+            Destroy(explosionP, 2.0f);
         }
     }
 }

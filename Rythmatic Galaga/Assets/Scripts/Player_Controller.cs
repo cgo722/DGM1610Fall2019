@@ -57,8 +57,8 @@ public class Player_Controller : MonoBehaviour
         {
             if (pHealth == 0)
             {
-                Instantiate(explosionEffect, gameObject.transform.position, gameObject.transform.rotation);
-                Instantiate(shipCrash, gameObject.transform.position, gameObject.transform.rotation);
+                ParticleSystem explosionP = Instantiate(explosionEffect, gameObject.transform.position, gameObject.transform.rotation);
+                ParticleSystem shipCrashP = Instantiate(shipCrash, gameObject.transform.position, gameObject.transform.rotation);
                 explosionNoise.PlayOneShot(explosionFX, 1.0f);
                 Debug.Log("You died");
                 spriteRenderer.enabled = false;
@@ -66,8 +66,8 @@ public class Player_Controller : MonoBehaviour
                 gameover = true;
                 
                 gameManager.GameOver();
-                DestroyImmediate(explosionEffect);
-                DestroyImmediate(shipCrash, true);
+                Destroy(explosionP, 2.0f);
+                Destroy(shipCrashP, 2.0f);
             }
             else
             {
@@ -75,13 +75,13 @@ public class Player_Controller : MonoBehaviour
                 pHealth--;
                 explosionNoise.PlayOneShot(explosionFX, 1.0f);
 
-                DestroyImmediate(shipCrash, true);
+                Destroy(shipCrash.gameObject, 2.0f);
 
             }
         }
         if (collision.gameObject.CompareTag("Asteroid"))
         {
-            Instantiate(explosionEffect, gameObject.transform.position, gameObject.transform.rotation);
+            ParticleSystem explosionP = Instantiate(explosionEffect, gameObject.transform.position, gameObject.transform.rotation);
             explosionNoise.PlayOneShot(explosionFX, 1.0f);
             spriteRenderer.enabled = false;
             Debug.Log("You died");
@@ -89,7 +89,7 @@ public class Player_Controller : MonoBehaviour
             gameover = true;
 
             gameManager.GameOver();
-            DestroyImmediate(explosionEffect, true);
+            Destroy(explosionP, 2.0f);
         }
         if (collision.gameObject.CompareTag("PickUp"))
         {
