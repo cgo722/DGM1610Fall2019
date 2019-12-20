@@ -15,25 +15,25 @@ public class Eucledian_Taurus : MonoBehaviour
     {
 
         // Teleport the game object
-        if (transform.position.x > 12)
+        if (transform.position.x > 50)
         {
 
-            transform.position = new Vector3(-12, transform.position.y, 0);
+            transform.position = new Vector3(-50, transform.position.y, 0);
 
         }
-        else if (transform.position.x < -12)
+        else if (transform.position.x < -50)
         {
-            transform.position = new Vector3(12, transform.position.y, 0);
+            transform.position = new Vector3(50, transform.position.y, 0);
         }
 
-        else if (transform.position.y > 6)
+        else if (transform.position.y > 25)
         {
-            transform.position = new Vector3(transform.position.x, -6, 0);
+            transform.position = new Vector3(transform.position.x, -25, 0);
         }
 
-        else if (transform.position.y < -6)
+        else if (transform.position.y < -25)
         {
-            transform.position = new Vector3(transform.position.x, 6, 0);
+            transform.position = new Vector3(transform.position.x, 25, 0);
         }
     }
 }
