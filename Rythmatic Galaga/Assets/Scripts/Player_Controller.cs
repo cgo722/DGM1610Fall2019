@@ -24,6 +24,7 @@ public class Player_Controller : MonoBehaviour
     public ParticleSystem explosionEffect;
     public ParticleSystem shipCrash;
     public TextMeshProUGUI liveCounter;
+    public float cVelocity;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,11 @@ public class Player_Controller : MonoBehaviour
         LiveCounter();
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.forward * Time.deltaTime * hspeed * horizontalInput);
+    }
+
+    public void FixedUpdate()
+    {
+        cVelocity = rgb.velocity.magnitude;
     }
     void ShootBullets()
     {

@@ -12,6 +12,7 @@ public class Bullet_Programming : MonoBehaviour
     public AudioClip explosionNoise;
     private SpriteRenderer spriteRenderer;
     public ParticleSystem explosionFX;
+    private Player_Controller player_Controller;
         // Use this for initialization
         void Start()
         {
@@ -19,13 +20,15 @@ public class Bullet_Programming : MonoBehaviour
         Destroy(gameObject, 1.0f);
 
         rb2d = GetComponent<Rigidbody2D>();
-        rb2d.AddForce(transform.up * 400);
+        rb2d.AddForce(transform.up * 400 * player_Controller.cVelocity);
 
         gameManager = GameObject.Find("Spawn manager").GetComponent<GameManager>();
 
         soundEffects = GetComponent<AudioSource>();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        player_Controller = GameObject.Find("Player").GetComponent<Player_Controller>();
         }
     private void Update()
     {
