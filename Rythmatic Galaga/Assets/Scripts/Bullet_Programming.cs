@@ -20,7 +20,7 @@ public class Bullet_Programming : MonoBehaviour
         Destroy(gameObject, 1.0f);
 
         rb2d = GetComponent<Rigidbody2D>();
-        rb2d.AddForce(transform.up * 400 * player_Controller.cVelocity);
+        rb2d.AddForce(transform.up * 400);
 
         gameManager = GameObject.Find("Spawn manager").GetComponent<GameManager>();
 
