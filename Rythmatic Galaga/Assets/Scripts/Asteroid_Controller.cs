@@ -11,11 +11,13 @@ public class Asteroid_Controller : MonoBehaviour
     public GameObject player;
     public ParticleSystem asteroidExplosion;
     public ParticleSystem explosionFX;
+    public float livingTime;
     // Start is called before the first frame update
     void Start()
     {
         rgb2d = GetComponent<Rigidbody2D>();
         rgb2d.AddForce(transform.up * Random.Range(minSpeed, maxSpeed));
+        Destroy(gameObject, livingTime); 
     }
 
     // Update is called once per frame

@@ -130,6 +130,7 @@ MonoBehaviour:
     type: 3}
   explosionFX: {fileID: 5359171180525418124, guid: 7ac0f6ac99c15284f8b06c40a4758ada,
     type: 3}
+  livingTime: 15
 --- !u!50 &5694698003159384393
 Rigidbody2D:
   serializedVersion: 4
