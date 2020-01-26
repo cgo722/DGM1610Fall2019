@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Eucledian_Taurus : MonoBehaviour
 {
+    public bool active;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +14,7 @@ public class Eucledian_Taurus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (active == true) { 
         // Teleport the game object
         if (transform.position.x > 50)
         {
@@ -35,6 +36,7 @@ public class Eucledian_Taurus : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, 25, 0);
         }
+      }
     }
 }
 

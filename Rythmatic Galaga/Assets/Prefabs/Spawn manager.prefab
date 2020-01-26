@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4549598484718249794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4549598484718249792}
+  - component: {fileID: 4549598484718249793}
+  - component: {fileID: 4549598484718249807}
+  m_Layer: 0
+  m_Name: Spawn manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4549598484718249792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549598484718249794}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.4738467, y: 0.7324471, z: -7.9980206}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4549598484718249793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549598484718249794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f323fd81302d6d4bafce69e362698de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPickUp: {fileID: 7020188715692638178, guid: 5fc62568726407e458fd4f64f7fd9ab2,
+    type: 3}
+  badGuys:
+  - {fileID: 6475904583864432301, guid: 8af11ccaee5c24b4888dd0a383798cf0, type: 3}
+  asteroids:
+  - {fileID: 7102173480983550034, guid: d29cb17b3c9f3024abc81891b265f209, type: 3}
+  spawnRangeX: 12
+  spawnRangeY: 5
+  startDelay: 2
+  spawnInterval: 5
+  startDelayA: 1
+  spawnIntervalA: 5
+  enemyCount: 0
+  waveNumber: 0
+  isGameActive: 1
+--- !u!114 &4549598484718249807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549598484718249794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5877dd6e3634914baeddc003094b334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
+  title: {fileID: 0}
+  button: {fileID: 0}
+  player: {fileID: 0}
+  restartButton: {fileID: 0}
+  gameOver: {fileID: 0}

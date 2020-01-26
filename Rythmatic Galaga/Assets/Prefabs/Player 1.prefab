@@ -113,6 +113,8 @@ MonoBehaviour:
     type: 3}
   shipCrash: {fileID: 7623364992266422925, guid: db2ba50039b27984e9e7585a5ebfed0f,
     type: 3}
+  liveCounter: {fileID: 0}
+  cVelocity: 0
 --- !u!114 &1995882409670949167
 MonoBehaviour:
   m_ObjectHideFlags: 0
