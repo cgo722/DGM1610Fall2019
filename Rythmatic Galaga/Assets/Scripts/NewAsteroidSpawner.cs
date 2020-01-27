@@ -9,6 +9,8 @@ public class NewAsteroidSpawner : MonoBehaviour
     public float startDelay;
     public float spawnInterval;
 
+    public float spawnCounter;
+
     public GameObject[] asteroids;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,10 @@ public class NewAsteroidSpawner : MonoBehaviour
 
     void SpawnAsteroids()
     {
-        Vector2 spawnPos = new Vector2(Random.Range(-spawnRangeX, spawnRangeX), Random.Range(-spawnRangeY, spawnRangeY));
-        Instantiate(asteroids[0], spawnPos, Quaternion.Euler(0, 0, Random.Range(-0.0f, 359.0f)));
+        
+            Vector2 spawnPos = new Vector2(Random.Range(-spawnRangeX, spawnRangeX), Random.Range(-spawnRangeY, spawnRangeY));
+            Instantiate(asteroids[0], spawnPos, Quaternion.Euler(0, 0, Random.Range(-0.0f, 359.0f)));
+            
+        
     }
 }
