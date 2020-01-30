@@ -22,7 +22,7 @@ public class Bullet_Programming : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.AddForce(transform.up * 400);
 
-        gameManager = GameObject.Find("Spawn manager").GetComponent<GameManager>();
+        //gameManager = GameObject.Find("Spawn manager").GetComponent<GameManager>();
 
         soundEffects = GetComponent<AudioSource>();
 
