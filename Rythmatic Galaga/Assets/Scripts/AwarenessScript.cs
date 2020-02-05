@@ -22,11 +22,15 @@ public class AwarenessScript : MonoBehaviour
     {
         transform.position = badGuy.transform.position + offset;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        while (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             aware = true;
+        }
+        else
+        {
+            aware = false;
         }
     }
 }

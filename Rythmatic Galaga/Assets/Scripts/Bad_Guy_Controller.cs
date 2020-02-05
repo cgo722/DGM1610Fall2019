@@ -32,7 +32,7 @@ public class Bad_Guy_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while (awareness.aware == true)
+        if (awareness.aware == true)
         {
             MoveTowardsPlayer();
         }
