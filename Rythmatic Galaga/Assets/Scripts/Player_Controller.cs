@@ -25,6 +25,7 @@ public class Player_Controller : MonoBehaviour
     public ParticleSystem shipCrash;
     public TextMeshProUGUI liveCounter;
     public float cVelocity;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -32,8 +33,9 @@ public class Player_Controller : MonoBehaviour
         InvokeRepeating("ShootBullets", startDelay, frequencyOfShot);
         rgb = GetComponent<Rigidbody2D>();
         explosionNoise = GetComponent<AudioSource>();
-        gameManager = GameObject.Find("Spawn manager").GetComponent<GameManager>();
+        //gameManager = GameObject.Find("Spawn manager").GetComponent<GameManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
         
     }
 

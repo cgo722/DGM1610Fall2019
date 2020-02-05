@@ -14,7 +14,10 @@ public class Bad_Guy_Controller : MonoBehaviour
     private AudioSource soundEffects;
     public AudioClip explosionNoise;
     private SpriteRenderer spriteRenderer;
-    
+    private CircleCollider2D awarness;
+    private BoxCollider2D ship;
+    private AwarenessScript awareness;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,21 +26,27 @@ public class Bad_Guy_Controller : MonoBehaviour
         player = GameObject.Find("Player");
         soundEffects = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
+        awareness = GameObject.Find("Awareness").GetComponent<AwarenessScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        Vector3 lookDirection = (player.transform.position - transform.position).normalized;
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        enemyrb.rotation = 270 + angle;
-        enemyrb.AddForce(lookDirection * speed, ForceMode2D.Impulse);
+        while (awareness.aware == true)
+        {
+            MoveTowardsPlayer();
+        }
     }
     void SpawnBullets()
     {
         Instantiate(eBullets, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
+    }
+    void MoveTowardsPlayer()
+    {
+        Vector3 lookDirection = (player.transform.position - transform.position).normalized;
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        enemyrb.rotation = 270 + angle;
+        enemyrb.AddForce(lookDirection * speed, ForceMode2D.Impulse);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -67,5 +76,7 @@ public class Bad_Guy_Controller : MonoBehaviour
         {
             health++;
         }
+
+
     }
 }
