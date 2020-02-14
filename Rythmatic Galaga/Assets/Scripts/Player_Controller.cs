@@ -131,12 +131,11 @@ public class Player_Controller : MonoBehaviour
             pHealth++;
             Debug.Log("Your Health is: " + pHealth);
         }
-        while (collision.gameObject.CompareTag("planet1"))
+        if (collision.gameObject.CompareTag("planet1") && Input.GetKeyDown(KeyCode.E))
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
                 SceneManager.LoadScene("Planet 1");
-            }
+                Debug.Log("This is supposed to change the scene");
+
         }
     }
 }
