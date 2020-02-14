@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class Player_Controller : MonoBehaviour
     public ParticleSystem shipCrash;
     public TextMeshProUGUI liveCounter;
     public float cVelocity;
+
+
     
 
     // Start is called before the first frame update
@@ -81,7 +84,7 @@ public class Player_Controller : MonoBehaviour
                 spriteRenderer.enabled = false;
                 Destroy(gameObject, 1.0f);
                 gameover = true;
-                
+
                 gameManager.GameOver();
                 Destroy(explosionP, 2.0f);
                 Destroy(shipCrashP, 2.0f);
@@ -98,7 +101,7 @@ public class Player_Controller : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("enemy_bullet"))
         {
-            if(pHealth == 0)
+            if (pHealth == 0)
             {
                 spriteRenderer.enabled = false;
                 Destroy(gameObject, 1.0f);
@@ -127,6 +130,13 @@ public class Player_Controller : MonoBehaviour
         {
             pHealth++;
             Debug.Log("Your Health is: " + pHealth);
+        }
+        while (collision.gameObject.CompareTag("planet1"))
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                SceneManager.LoadScene("Planet 1");
+            }
         }
     }
 }
