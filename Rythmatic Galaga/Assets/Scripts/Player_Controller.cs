@@ -131,6 +131,10 @@ public class Player_Controller : MonoBehaviour
             pHealth++;
             Debug.Log("Your Health is: " + pHealth);
         }
+
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
         if (collision.gameObject.CompareTag("planet1") && Input.GetKeyDown(KeyCode.E))
         {
                 SceneManager.LoadScene("Planet 1");
