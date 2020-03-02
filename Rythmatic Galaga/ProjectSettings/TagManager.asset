@@ -10,6 +10,9 @@ TagManager:
   - enemy_bullet
   - PickUp
   - planet1
+  - planet2
+  - planet3
+  - planet4
   layers:
   - Default
   - TransparentFX

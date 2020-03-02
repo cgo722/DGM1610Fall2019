@@ -56,7 +56,7 @@ public class Player_Controller : MonoBehaviour
     }
     void ShootBullets()
     {
-        if (Input.GetKey(KeyCode.Space) && gameover == false)
+        if (Input.GetButton("fire1") && gameover == false)
         {
 
             //transform.Translate(Vector2.left * Time.deltaTime * vspeed);
@@ -135,10 +135,28 @@ public class Player_Controller : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("planet1") && Input.GetKeyDown(KeyCode.E))
+        if (collision.gameObject.CompareTag("planet1") && Input.GetButtonDown("Interact"))
         {
                 SceneManager.LoadScene("Planet 1");
                 Debug.Log("This is supposed to change the scene");
+
+        }
+        if (collision.gameObject.CompareTag("planet2") && Input.GetButtonDown("Interact"))
+        {
+            SceneManager.LoadScene("Planet 2");
+            Debug.Log("This is supposed to change the scene");
+
+        }
+        if (collision.gameObject.CompareTag("planet3") && Input.GetButtonDown("Interact"))
+        {
+            SceneManager.LoadScene("Planet 3");
+            Debug.Log("This is supposed to change the scene");
+
+        }
+        if (collision.gameObject.CompareTag("planet4") && Input.GetButtonDown("Interact"))
+        {
+            SceneManager.LoadScene("Planet 4");
+            Debug.Log("This is supposed to change the scene");
 
         }
     }
