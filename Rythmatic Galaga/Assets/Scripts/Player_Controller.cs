@@ -56,7 +56,7 @@ public class Player_Controller : MonoBehaviour
     }
     void ShootBullets()
     {
-        if (Input.GetButton("fire1") && gameover == false)
+        if (Input.GetButton("Fire1") && gameover == false)
         {
 
             //transform.Translate(Vector2.left * Time.deltaTime * vspeed);
